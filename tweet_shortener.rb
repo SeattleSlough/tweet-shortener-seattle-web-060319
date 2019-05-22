@@ -29,3 +29,14 @@ end
       puts word_substituter(element)
     end
   end
+  
+  def selective_tweet_shortener(tweets)
+    tweets.each do |element|
+      if element.length > 140
+        puts word_substituter(element)
+      else 
+        puts element
+      end
+    end
+  end
+    
