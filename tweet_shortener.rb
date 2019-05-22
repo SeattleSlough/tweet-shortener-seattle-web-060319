@@ -45,7 +45,7 @@ end
        string = word_substituter(tweet)
      end
      if string.length > 140
-       return "#{string[0...139]}..."
+       return "#{string[0..140]}..."
      end
    end
     
