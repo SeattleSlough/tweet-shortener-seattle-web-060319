@@ -35,7 +35,6 @@ end
         puts word_substituter(tweet)
       else 
         puts element
-      end
     end
   end
     
