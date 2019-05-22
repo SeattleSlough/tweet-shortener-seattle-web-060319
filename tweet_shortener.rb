@@ -34,7 +34,7 @@ end
       if tweet.length > 140
         return word_substituter(tweet)
       else 
-        return element
+        return tweet
     end
   end
     
