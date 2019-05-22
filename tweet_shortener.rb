@@ -26,7 +26,6 @@ end
   
   def bulk_tweet_shortener(tweets)
     tweets.each do |element|
-      string = element.join(" ")
-      puts word_substituter(string)
+      puts word_substituter(element)
     end
   end
