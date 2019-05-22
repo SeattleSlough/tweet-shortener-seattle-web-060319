@@ -15,17 +15,18 @@ def dictionary
 end
   
   def word_substituter(string)
-    list = dictionary()
-    array = string.split
-    new_array = array.map do |word|
-                  list.each do |key, value|
-                     if word == key
-                     word = value
-        end
+    string.split.map do |word|
+      if dictionary.keys.include?(word.downcase)
+        word = dictionary[word.downcase]
+      else
+        word
       end
-    end
-    binding.pry
-    new_array.join(" ")
-    return new_array
+    end.join(" ")
   end
-    
+  
+  def bulk_tweet_shortener(tweets)
+    tweets.each do |element|
+      string = element.join(" ")
+      puts word_substituter(string)
+    end
+  end
