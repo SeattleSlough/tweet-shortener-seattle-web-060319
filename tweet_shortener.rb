@@ -15,17 +15,37 @@ def dictionary
 end
   
   def word_substituter(string)
-    list = dictionary()
-    array = string.split
-    new_array = array.map do |word|
-                  list.each do |key, value|
-                     if word == key
-                     word = value
-        end
+    string.split.map do |word|
+      if dictionary.keys.include?(word.downcase)
+        word = dictionary[word.downcase]
+      else
+        word
       end
-    end
-    binding.pry
-    new_array.join(" ")
-    return new_array
+    end.join(" ")
   end
+  
+  def bulk_tweet_shortener(tweets)
+    tweets.each do |element|
+      puts word_substituter(element)
+    end
+  end
+  
+  def selective_tweet_shortener(tweet)
+      if tweet.length > 140
+        return word_substituter(tweet)
+      else 
+        return tweet
+    end
+  end
+  
+  def shortened_tweet_truncator(tweet)
+     if tweet.length < 140
+       return tweet
+     else
+       string = word_substituter(tweet)
+     end
+     if string.length > 140
+       return "#{string[0..136]}..."
+     end
+   end
     
